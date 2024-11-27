@@ -1,0 +1,36 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: configure
+      run: ./configure
+
+    - name: Initial build
+      run: make build-initial
+
+    - name: Database Initialize
+      run: make database-init
+
+    - name: Run cs-fixer
+      run: make fix-cs
+
+    - name: Run phpstan
+      run: make php-stan
+
+    - name: Run Test Behat
+      run: make tests-behat
+      
+    - name: Run Test PhpUnit
+      run: make tests-phpunit
