@@ -15,7 +15,8 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Initial build
-      run: make build-initial
+      run: | 
+        make build-initial
       env:
         APP_ENV: dev
         USER_UID: 1000
