@@ -1,7 +1,8 @@
 # Variables
 DOCKER = docker
 DOCKER_COMPOSE = docker compose
-EXEC = $(DOCKER) exec -it php-fpm
+EXEC = $(DOCKER) exec php-fpm
+# EXEC = $(DOCKER) exec -it php-fpm
 PHP = $(EXEC) php
 COMPOSER = $(EXEC) composer
 NPM = $(EXEC) npm
