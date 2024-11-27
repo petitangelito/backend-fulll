@@ -170,6 +170,3 @@ php-ssh: ## Run ssh on our php container
 
 chown-php: ## <Tests> Run specs
 	$(DOCKER_COMPOSE) run --rm php chown $(USER_UID):$(USER_GID) -R .
-
-copy-env-file:
-	cp .env.test .env
