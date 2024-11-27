@@ -80,8 +80,6 @@ start: ## Start app
 
 docker-start: 
 	$(DOCKER_COMPOSE) up -d
-	$(DOCKER) ps
-	$(DOCKER) logs pg-fleet
 
 stop: ## Stop app
 	$(MAKE) docker-stop
@@ -113,6 +111,8 @@ npm-watch: ## Update all npm dependencies
 
 ## —— 📊 Database —————————————————————————————————————————————————————————————————
 database-init: ## Init database
+	$(DOCKER) ps
+	$(DOCKER) logs pg-fleet
 	$(MAKE) database-drop
 	$(MAKE) database-create
 	$(MAKE) database-create-test
