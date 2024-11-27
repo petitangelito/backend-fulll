@@ -80,6 +80,8 @@ start: ## Start app
 
 docker-start: 
 	$(DOCKER_COMPOSE) up -d
+	$(DOCKER) ps
+	$(DOCKER) logs pg-fleet
 
 stop: ## Stop app
 	$(MAKE) docker-stop
