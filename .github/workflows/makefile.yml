@@ -22,14 +22,14 @@ jobs:
         USER_UID: 1000
         USER_GID: 1000
         HOSTNAME: 127.0.0.1
-        DATABASE_CONTAINER_NAME: 127.0.0.1
+        DATABASE_CONTAINER_NAME: pg-fleet
         DATABASE_NAME: fleet
         DATABASE_USER: fleet-user
         DATABASE_PASSWORD: fleet-user-password
         PHP_VERSION: 8.2
         APP_FOLDER: ./app
         APP_SECRET: fulll_hiring_secret
-        DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_CONTAINER_NAME}:5432/${DATABASE_NAME}
+        DATABASE_URL: postgresql://fleet-user:fleet-user-password@pg-fleet:5432/fleet
         MESSENGER_TRANSPORT_DSN: doctrine://default?auto_setup=0
         APP_DEBUG: true
 
