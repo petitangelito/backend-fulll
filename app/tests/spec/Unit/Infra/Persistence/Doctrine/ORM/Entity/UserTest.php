@@ -14,6 +14,7 @@ class UserTest extends KernelTestCase
     public function getUserEntity(): User
     {
         $faker = Factory::create();
+
         return (new User())->setId(new UuidV4())
                             ->setUsername($faker->userName())
                             ->setEmail($faker->email())

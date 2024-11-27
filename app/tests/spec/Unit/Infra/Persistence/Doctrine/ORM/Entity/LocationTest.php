@@ -15,6 +15,7 @@ class LocationTest extends KernelTestCase
     public function getLocationEntity(): Location
     {
         $faker = Factory::create();
+
         return (new Location())->setId(new UuidV4())
                             ->setRessourceId(new Ressource())
                             ->setLat($faker->latitude())

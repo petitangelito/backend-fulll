@@ -3,10 +3,8 @@
 namespace App\Tests\Unit\Infra\Persistence\Doctrine\ORM\Repository;
 
 use App\Infra\Persistence\Doctrine\ORM\Entity\Fleet;
-use App\Infra\Persistence\Doctrine\ORM\Entity\User;
 use App\Infra\Persistence\Doctrine\ORM\Repository\FleetRepository;
 use App\Infra\Persistence\Doctrine\ORM\Repository\UserRepository;
-use Faker\Factory;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Uid\UuidV4;
 

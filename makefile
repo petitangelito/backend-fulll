@@ -51,10 +51,10 @@ php-stan: ## <Linters> Fix code style
 .PHONY: tests
 tests: ## Run all tests
 	$(MAKE) database-init-test
-	$(PHP) bin/phpunit --testdox tests/Unit/
+	$(PHP) bin/phpunit
 
 tests-phpunit: ## Run all phpunit tests
-	$(PHP) bin/phpunit --testdox tests/Unit/
+	$(PHP) bin/phpunit
 
 tests-behat: ## Run all behat tests
 	$(EXEC) bash -c 'vendor/behat/behat/bin/behat'
@@ -111,8 +111,6 @@ npm-watch: ## Update all npm dependencies
 
 ## —— 📊 Database —————————————————————————————————————————————————————————————————
 database-init: ## Init database
-	$(DOCKER) ps
-	$(DOCKER) logs pg-fleet
 	$(MAKE) database-drop
 	$(MAKE) database-create
 	$(MAKE) database-create-test
