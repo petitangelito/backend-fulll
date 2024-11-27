@@ -2,7 +2,7 @@ services:
   postgres:
     restart: always
     image: postgres:16-alpine
-    user: "${USER_UID}:${USER_GID}"
+    user: ${USER_UID}:${USER_GID}
     container_name: "${DATABASE_CONTAINER_NAME}"
     ports:
       - "5432:5432"
