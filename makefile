@@ -51,7 +51,9 @@ php-stan: ## <Linters> Fix code style
 tests: ## Run all tests
 	$(MAKE) database-init-test
 	$(PHP) bin/phpunit --testdox tests/Unit/
-	$(PHP) bin/phpunit --testdox tests/Functional/
+
+tests-phpunit: ## Run all phpunit tests
+	$(PHP) bin/phpunit --testdox tests/Unit/
 
 tests-behat: ## Run all behat tests
 	$(EXEC) bash -c 'vendor/behat/behat/bin/behat'
@@ -114,6 +116,7 @@ database-init: ## Init database
 	$(MAKE) database-migrate
 	$(MAKE) database-migrate-test
 	$(MAKE) database-fixtures-load
+	$(MAKE) database-fixtures-load-test
 
 database-drop: ## Create database
 	$(SYMFONY_CONSOLE) d:d:d --force --if-exists
@@ -152,7 +155,7 @@ fixtures: ## Alias : database-fixtures-load
 	$(MAKE) database-fixtures-load
 
 fixtures-test: ## Alias : database-fixtures-load
-	$(MAKE) database-fixtures-load
+	$(MAKE) database-fixtures-load --env=test
 
 create-folders: ## Create data folders
 	mkdir -p ./app ./data/postgres ./logs/nginx
